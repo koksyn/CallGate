@@ -1,0 +1,49 @@
+<template>
+    <div>
+        <div class="row clearfix">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            CREATE GROUP
+                            <small>
+                                Please fill required fields to create a new group. <br>
+                                After successful creation, you will be redirected to the Home page of a new group.
+                            </small>
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group" v-if="errors.length > 0">
+                                    <label id="input-error" class="error" v-for="error in errors">{{ error }}</label>
+                                </div>
+                                <b>Name</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">content_paste</i>
+                                    </span>
+                                    <div class="form-line" v-bind:class="classWhenError">
+                                        <input class="form-control" v-model="name" placeholder="Group name" type="text">
+                                    </div>
+                                </div>
+                                <b>Description</b>
+                                <div class="input-group">
+                                    <div class="form-line" v-bind:class="classWhenError">
+                                        <textarea rows="4" class="form-control no-resize" v-model="description" placeholder="Group description"></textarea>
+                                    </div>
+                                </div>
+                                <button type="button" @click="createGroup" data-color="indigo" class="btn bg-indigo waves-effect">
+                                    <i class="material-icons">add</i> 
+                                    <span>CREATE GROUP</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script src="./group-create.js"></script>

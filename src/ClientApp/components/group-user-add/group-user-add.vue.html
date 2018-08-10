@@ -1,0 +1,74 @@
+<template>
+    <div>
+        <div class="row clearfix">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            ADD USER TO GROUP
+                            <small>
+                                Please fill username, to add user to group.<br>
+                            </small>
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group" v-if="errors.length > 0">
+                                    <label id="input-error" class="error" v-for="error in errors">{{ error }}</label>
+                                </div>
+                                <div>
+                                    <div class="pull-left higher">Username</div>
+                                    <div class="pull-left" v-if="preloaderLoading">
+                                        <div class="preloader pl-size-micro">
+                                            <div class="spinner-layer pl-indigo">
+                                                <div class="circle-clipper left">
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="circle-clipper right">
+                                                    <div class="circle"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">person_add</i>
+                                    </span>
+                                    <select id="user-search" class="form-control show-tick selectpicker" title="Write at least 3 letters and choose User from list..." data-live-search="true" v-bind:class="classWhenError">
+                                        <option
+                                                v-for="(user, index) in foundUsers"
+                                                :key="index"
+                                                :value="index"
+                                                :selected="user.selected">
+                                            {{ user.username }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <p>
+                                    <b>Role</b>
+                                </p>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">card_travel</i>
+                                    </span>
+                                    <select class="form-control show-tick selectpicker" id="rolepicker" v-model="role">
+                                        <option v-for="role in roles" :value="role">{{ role }}</option>
+                                    </select>
+                                </div>
+                                <button type="button" @click="addUserToGroup" data-color="indigo" class="btn bg-indigo waves-effect">
+                                    <i class="material-icons">add</i>
+                                    <span>ADD USER</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script src="./group-user-add.js"></script>

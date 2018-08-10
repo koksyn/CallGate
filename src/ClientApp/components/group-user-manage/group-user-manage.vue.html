@@ -1,0 +1,106 @@
+<template>
+    <div>
+        <!-- Tabs With Icon Title -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            MANAGE GROUP USERS
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div v-if="preloaderLoading" class="align-center">
+                            <div class="preloader">
+                                <div class="spinner-layer pl-indigo">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div v-if="!preloaderLoading">
+                            <div class="alert bg-blue-grey"  v-if="detailedGroupUsers.length == 0">
+                                <strong>No users found!</strong> There isn't any users in group at all.
+                            </div>
+                            <div v-if="detailedGroupUsers.length > 0">
+                                <b>Tip</b>
+                                <p>
+                                    This is a list of all users in this group. As administrator you can change theirs <b>roles</b> or <b>remove</b> them from group.
+                                </p>
+                                <div class="table-responsive manage-users">
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>USERNAME</th>
+                                            <th>JOINED GROUP AT</th>
+                                            <th>ROLE</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr v-for="(item, index) in detailedGroupUsers">
+                                            <th scope="row">{{ index+1 }}</th>
+                                            <td>{{ item.username }}</td>
+                                            <td>{{ formatDateTime(item.joinedGroupAt) }}</td>
+                                            <td>
+                                                <select v-if="account.id !== item.id" class="pick-me form-control show-tick selectpicker" v-model="detailedGroupUsers[index].role">
+                                                    <option v-for="role in roles" :value="role">{{ role }}</option>
+                                                </select>
+                                                <div v-if="account.id === item.id" class="form-group">
+                                                    <div class="form-line disabled">
+                                                        <input type="text" class="form-control" :placeholder="item.role" disabled />
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div v-if="account.id !== item.id">
+                                                    <button type="button" @click="editUserRole(item)" class="btn bg-indigo waves-effect">
+                                                        <i class="material-icons">edit</i>
+                                                        <span>EDIT ROLE</span>
+                                                    </button>
+                                                    <button type="button" @click="removeUserFromGroupAttempt(item, $event)" class="btn bg-deep-purple waves-effect">
+                                                        <i class="material-icons">delete</i>
+                                                        <span>REMOVE</span>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Hover Rows -->
+        <!-- Modal Dialogs ====================================================================================================================== -->
+        <!-- For Material Design Colors -->
+        <div class="modal fade" id="removeUser" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-col-deep-purple">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="defaultModalLabel" v-if="choosedUser !== null">Remove user '{{ choosedUser.username }}' from this group ?</h4>
+                    </div>
+                    <div class="modal-body">
+                        This action can not be undone. Are you pretty <b>sure</b>, that you want to do that?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" @click="removeUserFromGroup()" data-dismiss="modal" class="btn btn-link waves-effect">YES</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script src="./group-user-manage.js"></script>

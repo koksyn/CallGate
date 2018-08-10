@@ -1,0 +1,496 @@
+@media (max-width: 767px) {
+    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+    body {
+        padding-top: 50px;
+    }
+}
+
+/* ---------------- LOGIN ---------------- */
+.body-login {
+    background: -moz-linear-gradient(90deg, #000046 0%, #1cb5e0 100%) fixed; /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1cb5e0), color-stop(100%, #000046)) fixed; /* safari4+,chrome */
+    background: -webkit-linear-gradient(90deg, #000046 0%, #1cb5e0 100%) fixed; /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(90deg, #000046 0%, #1cb5e0 100%) fixed; /* opera 11.10+ */
+    background: -ms-linear-gradient(90deg, #000046 0%, #1cb5e0 100%) fixed; /* ie10+ */
+    background: linear-gradient(0deg, #000046 0%, #1cb5e0 100%) fixed; /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1cb5e0', endColorstr='#000046',GradientType=0 ); /* ie6-9 */
+}
+
+.login-page {
+    background: none;
+}
+
+.login-page .logo div {
+    color: #fff;
+    font-size: 36px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.logo-icon {
+    display: inline-block;
+    font-size: 50px;
+    margin-bottom: 0px;
+}
+
+/* ---------------- Sidebar ---------------- */
+
+.sidebar .user-info {
+    background: url("../../wwwroot/AdminBsb/images/user-img-background-new.jpg");
+    background-size: cover;
+    height: 145px;
+}
+
+.sidebar .user-info .info-container {
+    background: white;
+    padding: 5px;
+    border: 1px solid #f0f0f0;
+}
+
+.sidebar .user-info .info-container .name,
+.sidebar .user-info .info-container .email {
+    color: #000 !important;
+}
+
+.sidebar .user-info .info-container .user-helper-dropdown {
+    right: 5px;
+    bottom: 4px;
+    color: #000;
+}
+
+.unreaded {
+    font-size: 13px !important;
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+.navbar p.navbar-text {
+    color: #fff;
+}
+
+/* ---------------- RIGHT BAR ---------------- */
+
+.empty-bar span {
+    color: #747474;
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    width: 100%;
+    padding: 10px 13px;
+    font-weight: 400;
+}
+
+/* ---------------- Event feed ---------------- */
+
+#eventsFeed .dropdown-menu {
+    width: 362px;
+}
+
+/* ---------------- LIVE SEARCH select ---------------- */
+
+.btn-group.bootstrap-select.error {
+    border-bottom-color: red !important;
+}
+
+.bootstrap-select .bs-searchbox .form-control, 
+.bootstrap-select .bs-actionsbox .form-control, 
+.bootstrap-select .bs-donebutton .form-control {
+    margin-left: 40px;
+}
+
+.pl-size-micro {
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.higher {
+    font-weight: bold;
+    box-sizing: border-box;
+    margin: 0 0 10px;
+}
+
+/* ---------------- Managing users ---------------- */
+
+.manage-users .form-group {
+    margin-bottom: 5px;
+}
+
+/* --------------- messenger ---------------------*/
+
+.messenger {
+    width: 100%;
+    position: relative;
+}
+
+.messenger .info-box {
+    border-radius: 25px;
+    height: auto
+}
+
+.messenger .user-info .image img {
+    border-radius: 50%
+}
+
+.messenger .user-info .image {
+    padding: 16px;
+}
+
+.messenger-sender {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    width: calc(100% - 300px);
+    margin-bottom: 5px;
+    padding-left: 30px;
+}
+
+.messenger-receiver {
+    padding-bottom: 50px;
+}
+
+.messenger-receiver .foreign-message {
+    width: 60%;
+    float: left;
+    clear: both;
+}
+
+.messenger-receiver .owned-message {
+    width: 60%;
+    float: right;
+    clear: both;
+}
+
+.messenger-sender-input{
+    float: left;
+    height: 100%;
+    padding: 0;
+}
+
+.messenger-sender-input textarea {
+    height: 100%;
+    width: 100%;
+    resize: none;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    overflow: hidden
+}
+
+.messenger-sender-actions {
+    padding: 0;
+}
+
+.messenger-sender-actions button, .messenger-sender-actions > .dropdown > a {
+    margin-top: 5px;
+    margin-left: 8px;
+}
+
+.messenger-sender-actions button i, .messenger-sender-actions > .dropdown > a i {
+    top: 2px
+}
+
+.messenger-sender-actions .send-button:hover,
+.messenger-sender-actions .send-button:focus {
+    color: white
+}
+
+.messenger-sender-actions .dropdown-menu {
+    top: auto;
+    bottom: 5px;
+}
+
+@media screen and (max-width: 1182px) {
+    .messenger-sender {
+        width: calc(100%);
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .messenger-sender {
+        padding-left: 10px;
+    }
+
+    .messenger-sender-actions button, .messenger-sender-actions > .dropdown > a {
+        margin-left: 4px;
+    }
+
+    .messenger-receiver .foreign-message, 
+    .messenger-receiver .owned-message {
+        width: 100%;
+        margin-bottom: 20px;
+        float: none;
+        clear: none;
+    }
+
+    .messenger .user-info .image {
+        padding: 13px;
+    }
+
+    .messenger .info-box .icon {
+        width: 70px;
+        float: right;
+    }
+
+    .messenger .info-box .content {
+        float: left;
+        padding: 3px 10px 10px 10px;
+    }
+}
+
+/* --------------- themes adapt ---------------------*/
+
+/* red */
+
+.theme-red .bg-indigo, 
+.theme-red .col-indigo, 
+.theme-red .modal-col-indigo {
+    background-color: #DB3B30 !important; 
+}
+.theme-red .pl-indigo {
+    border-color: #DB3B30 !important;
+}
+.theme-red .bg-deep-purple,
+.theme-red .col-deep-purple,
+.theme-red .modal-col-deep-purple {
+    background-color: #a10000 !important;
+}
+.theme-red .bg-blue,
+.theme-red .col-blue,
+.theme-red .modal-col-blue {
+    background-color: #EF671E !important;
+}
+
+/* pink */
+
+.theme-pink .bg-indigo,
+.theme-pink .col-indigo,
+.theme-pink .modal-col-indigo {
+    background-color: #E91E63 !important;
+}
+.theme-pink .pl-indigo {
+    border-color: #E91E63 !important;
+}
+.theme-pink .bg-deep-purple,
+.theme-pink .col-deep-purple,
+.theme-pink .modal-col-deep-purple {
+    background-color: #9C27B0 !important;
+}
+.theme-pink .bg-blue,
+.theme-pink .col-blue,
+.theme-pink .modal-col-blue {
+    background-color: #DB3B30 !important;
+}
+
+/* purple */
+
+.theme-purple .bg-indigo,
+.theme-purple .col-indigo,
+.theme-purple .modal-col-indigo {
+    background-color: #9C27B0 !important;
+}
+.theme-purple .pl-indigo {
+    border-color: #9C27B0 !important;
+}
+.theme-purple .bg-deep-purple,
+.theme-purple .col-deep-purple,
+.theme-purple .modal-col-deep-purple {
+    background-color: #673AB7 !important;
+}
+.theme-purple .bg-blue,
+.theme-purple .col-blue,
+.theme-purple .modal-col-blue {
+    background-color: #E91E63 !important;
+}
+
+/* deep-purple */
+
+.theme-deep-purple .bg-indigo,
+.theme-deep-purple .col-indigo,
+.theme-deep-purple .modal-col-indigo {
+    background-color: #673AB7 !important;
+}
+.theme-deep-purple .pl-indigo {
+    border-color: #673AB7 !important;
+}
+.theme-deep-purple .bg-deep-purple,
+.theme-deep-purple .col-deep-purple,
+.theme-deep-purple .modal-col-deep-purple {
+    background-color: #3F51B5 !important;
+}
+.theme-deep-purple .bg-blue,
+.theme-deep-purple .col-blue,
+.theme-deep-purple .modal-col-blue {
+    background-color: #9C27B0 !important;
+}
+
+/* blue */
+
+.theme-blue .bg-indigo,
+.theme-blue .col-indigo,
+.theme-blue .modal-col-indigo {
+    background-color: #2196F3 !important;
+}
+.theme-blue .pl-indigo {
+    border-color: #2196F3 !important;
+}
+.theme-blue .bg-deep-purple,
+.theme-blue .col-deep-purple,
+.theme-blue .modal-col-deep-purple {
+    background-color: #3F51B5 !important;
+}
+.theme-blue .bg-blue,
+.theme-blue .col-blue,
+.theme-blue .modal-col-blue {
+    background-color: #00BCD4 !important;
+}
+
+/* cyan */
+
+.theme-cyan .bg-indigo,
+.theme-cyan .col-indigo,
+.theme-cyan .modal-col-indigo {
+    background-color: #00BCD4 !important;
+}
+.theme-cyan .pl-indigo {
+    border-color: #00BCD4 !important;
+}
+.theme-cyan .bg-deep-purple,
+.theme-cyan .col-deep-purple,
+.theme-cyan .modal-col-deep-purple {
+    background-color: #2196F3 !important;
+}
+.theme-cyan .bg-blue,
+.theme-cyan .col-blue,
+.theme-cyan .modal-col-blue {
+    background-color: #009688 !important;
+}
+
+/* teal */
+
+.theme-teal .bg-indigo,
+.theme-teal .col-indigo,
+.theme-teal .modal-col-indigo {
+    background-color: #009688 !important;
+}
+.theme-teal .pl-indigo {
+    border-color: #009688 !important;
+}
+.theme-teal .bg-deep-purple,
+.theme-teal .col-deep-purple,
+.theme-teal .modal-col-deep-purple {
+    background-color: #00BCD4 !important;
+}
+.theme-teal .bg-blue,
+.theme-teal .col-blue,
+.theme-teal .modal-col-blue {
+    background-color: #4CAF50 !important;
+}
+
+/* green */
+
+.theme-green .bg-indigo,
+.theme-green .col-indigo,
+.theme-green .modal-col-indigo {
+    background-color: #4CAF50 !important;
+}
+.theme-green .pl-indigo {
+    border-color: #4CAF50 !important;
+}
+.theme-green .bg-deep-purple,
+.theme-green .col-deep-purple,
+.theme-green .modal-col-deep-purple {
+    background-color: #009688 !important;
+}
+.theme-green .bg-blue,
+.theme-green .col-blue,
+.theme-green .modal-col-blue {
+    background-color: #8BC34A !important;
+}
+
+/* light-green */
+
+.theme-light-green .bg-indigo,
+.theme-light-green .col-indigo,
+.theme-light-green .modal-col-indigo {
+    background-color: #8BC34A !important;
+}
+.theme-light-green .pl-indigo {
+    border-color: #8BC34A !important;
+}
+.theme-light-green .bg-deep-purple,
+.theme-light-green .col-deep-purple,
+.theme-light-green .modal-col-deep-purple {
+    background-color: #4CAF50 !important;
+}
+.theme-light-green .bg-blue,
+.theme-light-green .col-blue,
+.theme-light-green .modal-col-blue {
+    background-color: #B0BF27 !important;
+}
+
+/* amber */
+
+.theme-amber .bg-indigo,
+.theme-amber .col-indigo,
+.theme-amber .modal-col-indigo {
+    background-color: #FFC107 !important;
+}
+.theme-amber .pl-indigo {
+    border-color: #FFC107 !important;
+}
+.theme-amber .bg-deep-purple,
+.theme-amber .col-deep-purple,
+.theme-amber .modal-col-deep-purple {
+    background-color: #D8A200 !important;
+}
+.theme-amber .bg-blue,
+.theme-amber .col-blue,
+.theme-amber .modal-col-blue {
+    background-color: #FF9800 !important;
+}
+
+/* orange */
+
+.theme-orange .bg-indigo,
+.theme-orange .col-indigo,
+.theme-orange .modal-col-indigo {
+    background-color: #FF9800 !important;
+}
+.theme-orange .pl-indigo {
+    border-color: #FF9800 !important;
+}
+.theme-orange .bg-deep-purple,
+.theme-orange .col-deep-purple,
+.theme-orange .modal-col-deep-purple {
+    background-color: #FFC107 !important;
+}
+.theme-orange .bg-blue,
+.theme-orange .col-blue,
+.theme-orange .modal-col-blue {
+    background-color: #FF5722 !important;
+}
+
+/* deep-orange */
+
+.theme-deep-orange .bg-indigo,
+.theme-deep-orange .col-indigo,
+.theme-deep-orange .modal-col-indigo {
+    background-color: #FF5722 !important;
+}
+.theme-deep-orange .pl-indigo {
+    border-color: #FF5722 !important;
+}
+.theme-deep-orange .bg-deep-purple,
+.theme-deep-orange .col-deep-purple,
+.theme-deep-orange .modal-col-deep-purple {
+    background-color: #FF9800 !important;
+}
+.theme-deep-orange .bg-blue,
+.theme-deep-orange .col-blue,
+.theme-deep-orange .modal-col-blue {
+    background-color: #F44336 !important;
+}

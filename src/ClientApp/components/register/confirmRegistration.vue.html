@@ -1,0 +1,34 @@
+<template>
+    <div class="login-page">
+        <div class="login-box">
+            <div class="logo">
+                <div><span>CallGate</span> <i class="material-icons logo-icon">chat</i></div>
+                <small>Business communicator</small>
+            </div>
+            <div class="card">
+                <div class="body">
+                    <form id="sign_in" method="POST">
+                        <div class="msg">Registration confirmation</div>
+                        <div class="form-group" v-if="(errors.length == 0) && !succeded">
+                            <p class="font-bold col-indigo">Please wait for verification...</p>
+                        </div>
+                        <div class="form-group" v-if="(errors.length > 0) && !succeded">
+                            <p class="font-bold col-red">We cannot complete your registration:</p>
+                            <label id="input-error" class="error" v-for="error in errors">{{ error }}</label>
+                        </div>
+                        <div class="form-group" v-if="succeded">
+                            <p class="font-bold col-green">Congratulations!</p>
+                            <p class="col-green">We've confirmed your registration. Your account is active now.</p>
+                            <br>
+                            <router-link to="/login" tag="button" class="btn btn-block bg-indigo waves-effect">
+                                GO TO LOGIN PAGE
+                            </router-link>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script src="./confirmRegistration.js"></script>

@@ -1,0 +1,30 @@
+<template>
+    <div>
+        <div class="row clearfix">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="body">
+                        <div class="form-group" v-if="errors.length > 0">
+                            <label id="input-error" class="error" v-for="error in errors">{{ error }}</label>
+                        </div>
+                        <div v-if="user !== null">
+                            You haven't talked with user <b>{{ user.username }}</b> before.
+                            <br><br>
+                            Do you want to begin a conversation?
+                            <br><br>
+                            <div class="pull-right">
+                                <button type="button" @click="createChat" data-color="indigo" class="btn bg-indigo waves-effect">
+                                    <i class="material-icons">arrow_forward</i>
+                                    <span>START CHAT</span>
+                                </button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script src="./chat-create.js"></script>

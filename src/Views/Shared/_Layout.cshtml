@@ -1,0 +1,125 @@
+﻿@*@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CallGate</title>
+    <base href="~/" />
+
+    <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/dist/site.css" asp-append-version="true" />
+    </environment>
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body>
+@RenderBody()
+
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+@RenderSection("scripts", required: false)
+</body>
+</html>*@
+
+@*inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>@ViewData["Title"] - CallGate</title>
+    <base href="~/" />
+
+    @*<link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />*@
+
+    <!------------------------------------- AdminBsb --------------------------->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="~/AdminBsb/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    
+    <!-- Bootstrap Select Css -->
+    <link href="~/AdminBsb/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    <!-- Waves Effect Css -->
+    <link href="~/AdminBsb/plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="~/AdminBsb/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Sweetalert Css -->
+    <link href="~/AdminBsb/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    
+    <!-- Morris Chart Css-->
+    <link href="~/AdminBsb/plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="~/AdminBsb/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="~/AdminBsb/css/themes/all-themes.css" rel="stylesheet" />
+    <!------------------------------------- AdminBsb --------------------------->
+
+    <environment exclude="Development">
+        @*<link rel="stylesheet" href="~/dist/site.css" asp-append-version="true" />*@
+    </environment>
+    @*Html.Raw(JavaScriptSnippet.FullScript)*@
+</head>
+<body id="global-body">
+    @RenderBody()
+
+
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+
+<!------------------------------------- AdminBsb --------------------------->
+    <!-- Jquery Core Js -->
+    <script src="~/AdminBsb/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="~/AdminBsb/plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="~/AdminBsb/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="~/AdminBsb/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="~/AdminBsb/plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="~/AdminBsb/plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="~/AdminBsb/plugins/raphael/raphael.min.js"></script>
+    <script src="~/AdminBsb/plugins/morrisjs/morris.js"></script>
+
+    <!-- ChartJs -->
+    <script src="~/AdminBsb/plugins/chartjs/Chart.bundle.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="~/AdminBsb/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Bootstrap Notify Plugin Js -->
+    <script src="~/AdminBsb/plugins/bootstrap-notify/bootstrap-notify.js"></script>
+    
+    <!-- SweetAlert Plugin Js -->
+    <script src="~/AdminBsb/plugins/sweetalert/sweetalert.min.js"></script>
+    
+    <!-- Notifications -->
+    <script src="~/AdminBsb/js/pages/ui/notifications.js"></script>
+    
+    <!-- Custom Js -->
+    <script src="~/AdminBsb/js/admin.js"></script>
+    <script src="~/AdminBsb/js/demo.js"></script>
+
+    <!------------------------------------- AdminBsb --------------------------->
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

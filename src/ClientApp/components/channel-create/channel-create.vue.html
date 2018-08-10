@@ -1,0 +1,43 @@
+<template>
+    <div>
+        <div class="row clearfix">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            CREATE CHANNEL
+                            <small>
+                                Please fill required fields to create a new channel in this group. <br>
+                                After successful creation, you will be redirected to the Channel view.
+                            </small>
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group" v-if="errors.length > 0">
+                                    <label id="input-error" class="error" v-for="error in errors">{{ error }}</label>
+                                </div>
+                                <b>Name</b>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">content_paste</i>
+                                    </span>
+                                    <div class="form-line" v-bind:class="classWhenError">
+                                        <input class="form-control" v-model="name" placeholder="Channel name" type="text">
+                                    </div>
+                                </div>
+                                <button type="button" @click="createChannel" data-color="indigo" class="btn bg-indigo waves-effect">
+                                    <i class="material-icons">add</i> 
+                                    <span>CREATE CHANNEL</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script src="./channel-create.js"></script>

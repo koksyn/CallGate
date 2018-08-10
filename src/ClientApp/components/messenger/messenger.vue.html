@@ -1,0 +1,80 @@
+<template>
+    <div>
+        <div class="messenger" ref="messenger">
+
+            <div v-if="preloaderLoading" class="align-left">
+                <div class="preloader pl-size-l">
+                    <div class="spinner-layer pl-indigo">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="messenger-receiver">
+                <template v-for="msg in sortedMessages" v-if="!preloaderLoading">
+                    <div class="info-box" :class="{ 'owned-message' : isOwnedMessage(msg.userId), 'foreign-message' : !isOwnedMessage(msg.userId)}">
+                        <div class="icon bg-indigo">
+                            <div class="user-info">
+                                <div class="image">
+                                    <img src="/AdminBsb/images/user.png" width="48" height="48" alt="User">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="text"><strong>{{ msg.username }}</strong> {{ formatDetailedDateTime(msg.created) }}</div>
+                            <div class="text">
+                                {{ msg.content }}
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </template>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="messenger-sender" v-if="!preloaderLoading">
+                <div class="messenger-sender-input pull-left col-xs-8 col-sm-8 col-md-10 col-lg-10">
+                    <textarea autofocus @keydown.enter="sendMessage" v-model="message" placeholder="Message here..."></textarea>
+                </div>
+                <div class="messenger-sender-actions pull-left col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                    <button @click="sendMessage" type="button" class="send-button pull-left btn bg-indigo btn-circle waves-effect waves-circle waves-float">
+                        <i class="material-icons">call_missed_outgoing</i>
+                    </button>
+                    <div class="dropdown pull-left">
+                        <a href="javascript:void(0);"
+                           class="dropdown-toggle pull-left btn btn-default btn-circle waves-effect waves-circle waves-float"
+                           data-toggle="dropdown"
+                           role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                        >
+                            <i class="material-icons">settings</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li v-if="type === 'channel'">
+                                <a href="javascript:void(0);" @click="leaveThisChannel()">
+                                    <i class="material-icons">exit_to_app</i>Leave {{type}}
+                                </a>
+                            </li>
+                            <li>
+                                <router-link :to="`/${type}/${$route.params.id}/user/manage`">
+                                    <i class="material-icons">face</i>Manage users
+                                </router-link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+        </div>
+    </div>
+</template>
+
+<script src="./messenger.js"></script>

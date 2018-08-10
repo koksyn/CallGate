@@ -1,0 +1,140 @@
+<template>
+    <div>
+        <div class="block-header">
+            <h2>
+                GROUP DETAILS
+            </h2>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header bg-indigo">
+                        <h2>
+                            {{ activeGroup.name }}
+                            <small>
+                                {{ activeGroup.description }}
+                            </small>
+                        </h2>
+                    </div>
+                    <div class="body">
+                        Created: <b>{{ formatDate(activeGroup.createdAt) }}</b>
+                        <hr>
+                        <router-link v-if="isAdmin()" to="/group/user/add" tag="button" class="btn bg-blue waves-effect">
+                            <i class="material-icons">person_add</i>
+                            <span>ADD USER TO GROUP</span>
+                        </router-link>
+                        <router-link v-if="isAdmin()" to="/group/user/manage" tag="button" class="btn bg-indigo waves-effect">
+                            <i class="material-icons">security</i>
+                            <span>MANAGE GROUP USERS</span>
+                        </router-link>
+                        <router-link v-if="isAdmin()" to="/group/edit" tag="button" class="btn bg-indigo waves-effect">
+                            <i class="material-icons">create</i>
+                            <span>EDIT GRUP</span>
+                        </router-link>
+                        <button type="button" @click="leaveGroupAttempt" data-color="deep-purple" class="btn bg-deep-purple waves-effect">
+                            <i class="material-icons">exit_to_app</i>
+                            <span>LEAVE GROUP</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="block-header">
+            <h2>
+                GENERAL GROUP STATS
+            </h2>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-indigo hover-zoom-effect">
+                    <div class="icon">
+                        <i class="material-icons">question_answer</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">CHANNELS</div>
+                        <div class="number count-to" data-from="0" :data-to="channels.length" data-speed="1000" data-fresh-interval="20">{{ channels.length }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-indigo hover-zoom-effect">
+                    <div class="icon">
+                        <i class="material-icons">people</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">PRIVATE CHATS</div>
+                        <div class="number count-to" data-from="0" :data-to="chatsCount" data-speed="1000" data-fresh-interval="20">{{ chatsCount }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-indigo hover-zoom-effect">
+                    <div class="icon">
+                        <i class="material-icons">face</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">USERS</div>
+                        <div class="number count-to" data-from="0" :data-to="users.length" data-speed="1000" data-fresh-interval="20">{{ users.length }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block-header">
+            <h2>
+                MY ACTIVITY
+            </h2>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-blue hover-zoom-effect">
+                    <div class="icon">
+                        <i class="material-icons">question_answer</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">CHANNELS</div>
+                        <div class="number">{{ connectedChannels.length }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-blue hover-zoom-effect">
+                    <div class="icon">
+                        <i class="material-icons">people</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">PRIVATE CHATS</div>
+                        <div class="number count-to" data-from="0" :data-to="connectedChats.length" data-speed="1000" data-fresh-interval="20">{{ connectedChats.length }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Dialogs ====================================================================================================================== -->
+        <!-- For Material Design Colors -->
+        <div class="modal fade" id="leaveGroup" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-col-deep-purple">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="defaultModalLabel">Leave group '{{ activeGroup.name }}' ?</h4>
+                    </div>
+                    <div class="modal-body">
+                        You gonna leave this group. You will be removed from all private chats and channels in this group.
+                        <br><br>
+                        This action can not be undone. Are you pretty <b>sure</b>, that you want to do that?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" @click="leaveGroup" data-dismiss="modal" class="btn btn-link waves-effect">YES</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script src="./home.js"></script>

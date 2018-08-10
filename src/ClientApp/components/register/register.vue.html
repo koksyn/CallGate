@@ -1,0 +1,86 @@
+<template>
+    <div class="login-page">
+        <div class="login-box">
+            <div class="logo">
+                <div><span>CallGate</span> <i class="material-icons logo-icon">chat</i></div>
+                <small>Business communicator</small>
+            </div>
+            <div class="card">
+                <div class="body">
+                    <form id="sign_in" method="POST">
+                        <div class="msg">Register a new membership</div>
+                        <div class="form-group" v-if="errors.length > 0">
+                            <label id="input-error" class="error" v-for="error in errors">{{ error }}</label>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">person</i>
+                            </span>
+                            <div class="form-line" v-bind:class="classWhenError">
+                                <input type="text" class="form-control" v-model="username" name="username" placeholder="Username" required autofocus>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">email</i>
+                            </span>
+                            <div class="form-line" v-bind:class="classWhenError">
+                                <input type="email" class="form-control" v-model="email" name="email" placeholder="Email address" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">lock</i>
+                            </span>
+                            <div class="form-line" v-bind:class="classWhenError">
+                                <input type="password" class="form-control" v-model="password" name="password" placeholder="Password" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                            <div class="form-line" v-bind:class="classWhenError">
+                                <input class="form-control" name="confirm" v-model="confirm" minlength="6" placeholder="Confirm Password" required="" aria-required="true" type="password">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button class="btn btn-block bg-indigo waves-effect" @click="register">
+                                    <i class="material-icons">forward</i>
+                                    <span>REGISTER</span>
+                                </button>
+                            </div>
+                            <div class="m-t-25 m-b--5 align-center">
+                                <router-link to="/login" class="col-blue">You already have a membership?</router-link>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Dialogs ====================================================================================================================== -->
+        <!-- For Material Design Colors -->
+        <div class="modal fade" id="successRegistration" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="defaultModalLabel">Successful registration!</h4>
+                    </div>
+                    <div class="modal-body">
+                        Thank you for the registration. Now you have to <b>confirm</b> your account.<br>
+                        We've sent you an email with confirmation link. Please check your email inbox.<br><br>
+                        Best regards,<br>
+                        The <b>CallGate</b> team
+                    </div>
+                    <div class="modal-footer">
+                        <router-link to="/login" tag="button" data-dismiss="modal" class="btn btn-link waves-effect">GO TO LOGIN PAGE</router-link>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script src="./register.js"></script>
